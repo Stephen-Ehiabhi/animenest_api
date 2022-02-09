@@ -1,14 +1,19 @@
 const express = require("express");
-const {listen,use} = express();
+const app = express();
+
+//middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 //import routes
-const anime = require('./routes/anime');
+const animeRoutes = require("./routes/anime");
 
-use('/api/v1',anime)
+app.use("/api/v1", animeRoutes);
 
+//predefined port
 const PORT = process.env.PORT || 8888;
 
-listen(PORT,(err)=>{
-if (err) console.log(err);
-console.log(`Server is running on ${PORT}`);
-})
+app.listen(PORT, (err) => {
+  if (err) console.log(err);
+  console.log(`Server is running on ${PORT}`);
+});

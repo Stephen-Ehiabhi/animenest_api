@@ -1,7 +1,12 @@
-const {get} = require('express').Router();
+const express = require("express");
+const router = express.Router();
 
 //controller route
-const {search} = require('../controller/anime-controller');
+const { search, singleAnime } = require("../controller/anime-controller");
 
-//GET: routes
-get('/search',search);
+//GET: search for an anime
+router.get("/search", search);
+//GET: search for singleanime by name of anime
+router.get("/single", singleAnime);
+
+module.exports = router;

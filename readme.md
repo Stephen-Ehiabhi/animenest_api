@@ -1,7 +1,8 @@
 
+
 # steevanime_api
 
-steevanime_api is a webscraped api used to help users stream and download anime without ads.
+SteevAnime_api is a webscraped api used to help users stream and download anime without ads.
 
 
 
@@ -38,6 +39,14 @@ Install steevanime_api with npm
   npm run dev (to run the server)
   
   -- please note that you have to have nodejs and npm previously installed to make the project run successfully 
+```
+
+## Endpoints
+
+```
+GET: /api/v1/search?name={nameofanime}
+GET: /api/v1/single?id={titleofanime}
+
 ```
     
 ## Authors

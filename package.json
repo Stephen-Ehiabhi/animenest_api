@@ -19,7 +19,11 @@
   "homepage": "https://github.com/Stephen-Ehiabhi/steevanime_api#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
-    "express": "^4.17.2"
+    "cron": "^1.8.2",
+    "express": "^4.17.2",
+    "node-fetch": "^2.6.7",
+    "pretty": "^2.0.0",
+    "puppeteer": "^13.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
