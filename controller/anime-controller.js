@@ -35,13 +35,15 @@ async function searchAnime(data) {
   listItems.each(function (index, e) {
     const $element = $(e);
     const image = $element.find(".img img").attr("src");
-    const name = $element.find(".name a").attr('title');
-    const link = $element.find(".name a").attr("href");
+    const name = $element.find(".name a").attr("title");
+    const $title = $element.find(".name a").attr("href");
+    var title = $title.substring(28);
+    title = title.replace("/", "");
 
     const anime = {
       image,
       name,
-      link,
+      title,
     };
 
     animeresults.push(anime);
@@ -49,7 +51,6 @@ async function searchAnime(data) {
 
   console.log(animeresults);
 }
-
 
 //single anime controller
 exports.singleAnime = async (req, res) => {
@@ -77,7 +78,6 @@ async function singleAnime(data) {
   const listItems = $("#episode_related").children("li");
   listItems.each(function (index, e) {
     const $element = $(e);
-
     const EP = $element.find(".each_episode").attr("data-order");
     const category = $element.find(".cate").text();
     const link = $element.find(".each_episode").attr("data-src");
