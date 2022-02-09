@@ -1,0 +1,27 @@
+{
+  "name": "steevanime_api",
+  "version": "1.0.0",
+  "description": "webscraped api used to stream and download anime without ads",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stephen-Ehiabhi/steevanime_api.git"
+  },
+  "author": "steevgr3y",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Stephen-Ehiabhi/steevanime_api/issues"
+  },
+  "homepage": "https://github.com/Stephen-Ehiabhi/steevanime_api#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
