@@ -25,7 +25,7 @@ Please note this project is for educational purposes only.
 
 ## Tech Stack
 
-**Server:** NodeJS, ExpressJS, [Cheerio](https://www.npmjs.com/package/cheerio)
+**Server:** NodeJS, ExpressJS, [Cheerio](https://www.npmjs.com/package/cheerio), [Puppeteer](https://www.npmjs.com/package/puppeteer)
 
 
 ## Installation
@@ -38,14 +38,17 @@ Install steevanime_api with npm
   npm install
   npm run dev (to run the server)
   
-  -- please note that you have to have nodejs and npm previously installed to make the project run successfully 
+  -- please note that you to have Node.js and npm installed to your computer to make the project run successfully 
 ```
 
 ## Endpoints
 
 ```
-GET: /api/v1/search?name={nameofanime}
-GET: /api/v1/single?id={titleofanime}
+GET: /api/v1/search?name={nameofanime} 
+--To search for anime
+
+GET: /api/v1/single?id={titleofanime}  
+--To get a single anime
 
 ```
     

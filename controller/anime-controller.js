@@ -20,15 +20,15 @@ exports.search = async (req, res) => {
       () => document.querySelector("*").outerHTML
     );
 
-    searchAnime(data);
+    searchAnime(data, res);
 
     await browser.close();
   } catch (err) {
-    console.error(err);
+    res.status(200).json({ message: "error", err });
   }
 };
 
-async function searchAnime(data) {
+async function searchAnime(data, res) {
   const $ = cheerio.load(data);
   const listItems = $(".items").children("li");
   // console.log(pretty(listItems.html()));
@@ -49,7 +49,7 @@ async function searchAnime(data) {
     animeresults.push(anime);
   });
 
-  console.log(animeresults);
+  res.status(200).json({ message: "success", animeresults });
 }
 
 //single anime controller
@@ -65,31 +65,47 @@ exports.singleAnime = async (req, res) => {
       () => document.querySelector("*").outerHTML
     );
 
-    singleAnime(data);
+    singleAnime(data, res);
 
     await browser.close();
   } catch (err) {
-    console.error(err);
+    res.status(200).json({ message: "error", err });
   }
 };
 
-async function singleAnime(data) {
+async function singleAnime(data, res) {
   const $ = cheerio.load(data);
   const listItems = $("#episode_related").children("li");
-  listItems.each(function (index, e) {
+  const listPage = $("#episode_page").children("li");
+  
+  //pagination page
+  listPage.each(function (index, e) {
+    let i = 0;
+    if (index == i) {
+    }
+    i++;
+    console.log(i);
+    //const $element = e[index].addClass("active");
+    const act = $(".active").text();
+  });
+
+  /*listItems.each(function (index, e) {
     const $element = $(e);
     const EP = $element.find(".each_episode").attr("data-order");
     const category = $element.find(".cate").text();
     const link = $element.find(".each_episode").attr("data-src");
-
     const singleAnime = {
       EP,
       category,
       link,
     };
-
     singleAnimeResults.push(singleAnime);
   });
 
-  console.log(singleAnimeResults);
+  //res.downlo
+
+  res.status(200).json({
+    message: "success",
+    singleAnimeResults,
+  });*/
 }
