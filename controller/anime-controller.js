@@ -55,7 +55,7 @@ async function searchAnime(data, res) {
 //single anime controller
 exports.singleAnime = async (req, res) => {
   const url = "https://gogoanime.mom/movie/";
-  //  const streamLink = $("iframe").attr("src");
+  //streamLink = $("iframe").attr("src");
   try {
     const browser = await puppeteer.launch();
     const [page] = await browser.pages();
@@ -77,7 +77,7 @@ async function singleAnime(data, res) {
   const $ = cheerio.load(data);
   const listItems = $("#episode_related").children("li");
   const listPage = $("#episode_page").children("li");
-  
+
   //pagination page
   listPage.each(function (index, e) {
     let i = 0;
