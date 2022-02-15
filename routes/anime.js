@@ -5,7 +5,7 @@ const router = express.Router();
 const { search, singleAnime } = require("../controller/anime-controller");
 
 //GET: search for an anime
-router.get("/search", search);
+router.get("/search/", search);
 //GET: search for singleanime by name of anime
 
 router.get("/single", singleAnime);

@@ -4,8 +4,8 @@ const CronJob = require("cron").CronJob;
 const pretty = require("pretty");
 
 //array of all the searched anime
-const animeresults = [];
-const singleAnimeResults = [];
+var animeresults = [];
+var singleAnimeResults = [];
 
 exports.search = async (req, res) => {
   const url = "https://gogoanime.mom/search/?keyword=";
@@ -19,7 +19,7 @@ exports.search = async (req, res) => {
     const data = await page.evaluate(
       () => document.querySelector("*").outerHTML
     );
-
+    animeresults = [];
     searchAnime(data, res);
 
     await browser.close();
@@ -45,11 +45,10 @@ async function searchAnime(data, res) {
       name,
       title,
     };
-
     animeresults.push(anime);
   });
-
-  res.status(200).json({ message: "success", animeresults });
+ 
+  res.status(200).json({ message: "success", animeresults, amount: animeresults.length });
 }
 
 //single anime controller
